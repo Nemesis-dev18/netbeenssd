@@ -6,29 +6,42 @@ package com.mycompany.mavenproject2;
 
 import java.util.Scanner;
 
-/**
- *
- * @author User
- */
 public class Mavenproject2 {
 
     public static void main(String[] args) {
-         
-        Scanner sc = new Scanner(System.in);
 
-        // Pedimos el índice de la raíz
-        System.out.print("Ingrese el índice de la raíz (por ejemplo, 2 para raíz cuadrada, 3 para cúbica): ");
-        int indice = sc.nextInt();
+        int cantidad;
+        Scanner M = new Scanner(System.in);
 
-        // Pedimos el número al que se le aplicará la raíz
-        System.out.print("Ingrese el número al que se le va a aplicar la raíz: ");
-        double numero = sc.nextDouble();
+        System.out.println("Cuántos estudiantes son");
+        cantidad = M.nextInt();
+        M.nextLine(); 
 
-        // Calculamos la raíz enésima usando Math.pow
-        double resultado = Math.pow(numero, 1.0 / indice);
+        estudiante lista[] = new estudiante[cantidad];
 
-        // Mostramos el resultado
-        System.out.println("La raíz " + indice + " de " + numero + " es: " + resultado);
+        for (int i = 0; i < lista.length; i++) {
+
+            System.out.println("Estudiante #" + (i + 1));
+
+            System.out.print("Nombre: ");
+            String nombre = M.nextLine();
+
+            System.out.print("Nota 1: ");
+            double nota1 = M.nextDouble();
+
+            System.out.print("Nota 2: ");
+            double nota2 = M.nextDouble();
+            M.nextLine(); 
+
+           
+            lista[i] = new estudiante(nombre, nota1, nota2);
+        }
+
+        System.out.println("\nRESULTADOS ");
+
+        for (int i = 0; i < lista.length; i++) {
+            lista[i].mostrarresultado();
+            System.out.println("           ");
+        }
     }
 }
-
